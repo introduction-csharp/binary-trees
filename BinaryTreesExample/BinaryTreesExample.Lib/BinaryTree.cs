@@ -58,6 +58,22 @@
             }
         }
 
+        /// <summary>
+        /// Attempt to remove a value from the binary tree 
+        /// </summary>
+        /// <param name="doomed">the value to remove</param>
+        /// <returns>whether the value was successfully removed</returns>
+        public bool Remove(int doomed)
+        {
+            if (_root == null || !_root.IsPresent(doomed))
+                return false;
+
+            // the idea here is that the remove function returns the new root (which could be 
+            // the same as the old root, but will need to be updated, if 
+            _root = _root.Remove(doomed);
+            return true;
+        }
+
         public override string ToString()
         {
             if (_root == null)
